@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsTesteVetor
 {
-    public partial class Form1 : Form
+    public partial class Produtos : Form
     {
-        public Form1()
+        public Produtos()
         {
             InitializeComponent();
         }
@@ -34,7 +34,10 @@ namespace WindowsFormsTesteVetor
                 _produtos.Add(produtos); 
                 MessageBox.Show($"O produto {produtos} foi adicionado. ", "Adição de Produto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tbxProdutos.Clear();
-                tbxProdutos.Focus();
+                tbxProdutos.Focus(); //btnProdutos
+                lbxQuantidade.Items.Clear();
+                lbxQuantidade.Items.Add(_produtos.Count.ToString());
+
             }
             else
             {
@@ -50,7 +53,8 @@ namespace WindowsFormsTesteVetor
             if (_produtos.Count > 0)
             {
                 foreach (string p in _produtos) 
-                    lbxProdutos.Items.Add(p); 
+                    lbxProdutos.Items.Add(p);
+                  
             }
             else
             {
@@ -86,6 +90,15 @@ namespace WindowsFormsTesteVetor
                     lbxQuantidade.Items.Add(quantidadeProdutos);
 
             }
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            {
+                Application.Exit();
+                                    
+            }
+
         }
     }
 }

@@ -19,8 +19,8 @@ namespace TestProduto
         public void Testfalha()
         {
             var produto = new ClassProduto1("", "");
-            string adicionar = produto.MostrarProduto("Leite");
-            Assert.NotEqual("Leite", adicionar);
+            string adicionar = produto.MostrarProduto("Maça");
+            Assert.Equal("Leite", adicionar);
         }
 
         [Fact]
