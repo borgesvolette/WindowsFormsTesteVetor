@@ -19,19 +19,22 @@ namespace WindowsFormsTesteVetor
         public Produtos()
         {
             InitializeComponent();
+
+            btnFechar.FlatStyle = FlatStyle.Flat;
+            btnFechar.FlatAppearance.MouseOverBackColor = Color.Firebrick;
         }
 
         private List<string> _produtos = new List<string>();
-        ArrayList itens = new ArrayList();
+        //ArrayList itens = new ArrayList();
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
 
 
             string produtos = tbxProdutos.Text.Trim();
-            if (produtos != "") 
+            if (produtos != "")
             {
-                _produtos.Add(produtos); 
+                _produtos.Add(produtos);
                 MessageBox.Show($"O produto {produtos} foi adicionado. ", "Adição de Produto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tbxProdutos.Clear();
                 tbxProdutos.Focus(); //btnProdutos
@@ -48,18 +51,19 @@ namespace WindowsFormsTesteVetor
         private void btnListar_Click(object sender, EventArgs e)
         {
             lbxProdutos.Items.Clear();
-           
+
 
             if (_produtos.Count > 0)
             {
-                foreach (string p in _produtos) 
+                foreach (string p in _produtos)
                     lbxProdutos.Items.Add(p);
-                  
             }
+
             else
             {
                 MessageBox.Show(" Nenhum produto cadastrado. ");
             }
+            
         }
 
         private void btnRemover_Click(object sender, EventArgs e)
@@ -67,8 +71,8 @@ namespace WindowsFormsTesteVetor
             if (lbxProdutos.SelectedItem != null)
             {
                 string produto = lbxProdutos.SelectedItem.ToString();
-                _produtos.Remove(produto); 
-                lbxProdutos.Items.Remove(produto); 
+                _produtos.Remove(produto);
+                lbxProdutos.Items.Remove(produto);
                 MessageBox.Show($"O produto {produto} foi removido. ", "Remoção de Produto", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -87,7 +91,7 @@ namespace WindowsFormsTesteVetor
 
             if (quantidadeProdutos > 0)
             {
-                    lbxQuantidade.Items.Add(quantidadeProdutos);
+                lbxQuantidade.Items.Add(quantidadeProdutos);
 
             }
         }
@@ -96,9 +100,18 @@ namespace WindowsFormsTesteVetor
         {
             {
                 Application.Exit();
-                                    
+
             }
 
+        }
+
+        private void tbxProdutos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+        
+            if (e.KeyChar == 13)
+            {
+                btnAdicionar_Click(sender, e);
+            }
         }
     }
 }

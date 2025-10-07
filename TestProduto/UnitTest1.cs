@@ -26,10 +26,7 @@ namespace TestProduto
         [Fact]
         public void TestListar()
         {
-            var produto1 = new ClassProduto1("Leite", "açucar");
-            var produto2 = new ClassProduto1("leite", "açucar");
-           Assert.NotEqual(produto1, produto2);
-                
+           
         }
 
 

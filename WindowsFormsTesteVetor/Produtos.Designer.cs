@@ -100,6 +100,7 @@
             this.tbxProdutos.Name = "tbxProdutos";
             this.tbxProdutos.Size = new System.Drawing.Size(180, 38);
             this.tbxProdutos.TabIndex = 6;
+            this.tbxProdutos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxProdutos_KeyPress);
             // 
             // lbxQuantidade
             // 
